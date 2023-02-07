@@ -1,0 +1,20 @@
+{
+    "name": "root/backend",
+    "authors": [
+        {
+            "name": "Grebenyuk_Chernenko",
+            "email": "312chernenkods@gmail.com"
+        }
+    ],
+    "require": {
+
+    },
+    "require-dev": {
+        "wanfeiyy/dd": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Palmo\\": "/"
+        }
+    }
+}

@@ -1,3 +1,6 @@
+<?php
+    require_once 'vendor/autoload.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +14,7 @@
         'Second' => 'B',
         'Third' => 'C',
     ];
-    var_dump($arr);
+    dd($arr);
     echo "</br>";
     foreach ($arr as $key => $element) {
         echo "$key => $element </br>";

@@ -1,4 +1,4 @@
-FROM php:fpm-buster
+FROM php:8.0-fpm-buster
 LABEL maintainer="palmo<palmo@palmo-HP-Laptop-15s-eq1xxx>"
 SHELL ["/bin/bash", "-oeux", "pipefail", "-c"]
 
@@ -12,7 +12,7 @@ ENV TZ=UTC \
   COMPOSER_ALLOW_SUPERUSER=1 \
   COMPOSER_HOME=/composer
 
-COPY --from=composer:2.0 /usr/bin/composer /usr/bin/composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 RUN apt-get update && \
   apt-get -y install git libicu-dev libonig-dev libzip-dev unzip locales && \
