@@ -1,10 +1,6 @@
 <?php
     require_once 'vendor/autoload.php';
-    $userName = 'John';
-    setcookie('user_name', $userName, time()+72000);
     session_start();
-    $_SESSION['test'] = 'test';
-
 ?>
 
 <!doctype html>
@@ -47,10 +43,32 @@
 <body class="text-center">
 
 <main class="form-signin">
-    <?php
-        $a = 'test';
-        include 'form.php';
-    ?>
+    <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+    <h1 class="h3 mb-3 fw-normal">You are</h1>
+
+    <div class="form-floating">
+        <?php echo $_GET['name'] ?>
+    </div>
+    <div class="form-floating">
+        <?php echo $_GET['surname'] ?>
+    </div>
+    <div class="form-floating">
+        <?php echo $_GET['role'] ?>
+    </div>
+    <div class="form-floating">
+        <?php echo $_COOKIE['user_name'] ?>
+    </div>
+    <div class="form-floating">
+
+        <?php echo dd($_REQUEST) ?>
+    </div>
+    <div class="form-floating">
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit"><a href="index.php">Back</a></button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
 </main>
+
+
+
 </body>
 </html>
