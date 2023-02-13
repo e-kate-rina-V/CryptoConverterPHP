@@ -1,10 +1,5 @@
 <?php
     require_once 'vendor/autoload.php';
-    $userName = 'John';
-    setcookie('user_name', $userName, time()+72000);
-    session_start();
-    $_SESSION['test'] = 'test';
-
 ?>
 
 <!doctype html>
@@ -48,7 +43,6 @@
 
 <main class="form-signin">
     <?php
-        $a = 'test';
         include 'form.php';
     ?>
 </main>
