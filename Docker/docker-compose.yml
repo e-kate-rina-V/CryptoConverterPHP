@@ -17,6 +17,8 @@ services:
       - DB_DATABASE=${DB_NAME:-php_course}
       - DB_USERNAME=${DB_USER:-php_course}
       - DB_PASSWORD=${DB_PASS:-php_course}
+    networks:
+      - backend
 
   web:
     build:
@@ -27,28 +29,37 @@ services:
     volumes:
       - php-fpm-socket:/var/run/php-fpm
       - ../backend:/work/backend
+    networks:
+        - backend
 
   db:
-    build:
-      context: .
-      dockerfile: ./mysql/Dockerfile
+    image: mysql:latest
     ports:
-      - ${DB_PORT:-3308}:3306
+      - "3310:3306"
     volumes:
       - db-store:/var/lib/mysql
+    restart: always
     environment:
-      - MYSQL_DATABASE=${DB_NAME:-php_course}
-      - MYSQL_USER=${DB_USER:-php_course}
-      - MYSQL_PASSWORD=${DB_PASS:-php_course}
-      - MYSQL_ROOT_PASSWORD=${DB_PASS:-php_course}
+      MYSQL_ROOT_PASSWORD: php_course
+      MYSQL_DATABASE: php_course
+      MYSQL_PASSWORD: php_course
+      MYSQL_USER: php_course
+    networks:
+        - backend
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    links:
-      - db:db
+    image: phpmyadmin/phpmyadmin:latest
+    depends_on:
+      - db
     ports:
       - 8001:80
     environment:
-      - MYSQL_USER=${DB_USER:-php_course}
-      - MYSQL_PASSWORD=${DB_PASS:-php_course}
-      - MYSQL_ROOT_PASSWORD=${DB_PASS:-php_course}
+      PMA_HOST: db
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: php_course
+    restart: always
+    networks:
+      - backend
+
+networks:
+  backend:
