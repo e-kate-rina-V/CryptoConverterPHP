@@ -25,7 +25,7 @@ services:
       context: .
       dockerfile: ./nginx/Dockerfile
     ports:
-      - "88:80"
+      - "${WEB_PORT}:80"
     volumes:
       - php-fpm-socket:/var/run/php-fpm
       - ../backend:/work/backend
@@ -35,15 +35,15 @@ services:
   db:
     image: mysql:latest
     ports:
-      - "3310:3306"
+      - "${DB_PORT}:3306"
     volumes:
       - db-store:/var/lib/mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: php_course
-      MYSQL_DATABASE: php_course
-      MYSQL_PASSWORD: php_course
-      MYSQL_USER: php_course
+      MYSQL_ROOT_PASSWORD: ${DB_PASS}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_PASSWORD: ${DB_PASS}
+      MYSQL_USER: ${DB_USER}
     networks:
         - backend
 
