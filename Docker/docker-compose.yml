@@ -25,7 +25,7 @@ services:
       context: .
       dockerfile: ./nginx/Dockerfile
     ports:
-      - ${WEB_PORT:-85}:80
+      - "88:80"
     volumes:
       - php-fpm-socket:/var/run/php-fpm
       - ../backend:/work/backend
