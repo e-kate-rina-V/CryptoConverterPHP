@@ -7,14 +7,15 @@
         }
     ],
     "require": {
-
+        "ext-pdo": "*"
     },
     "require-dev": {
-        "wanfeiyy/dd": "^1.0"
+        "wanfeiyy/dd": "^1.0",
+        "fakerphp/faker": "^1.9.1"
     },
     "autoload": {
         "psr-4": {
-            "Palmo\\": "/"
+            "Palmo\\": ""
         }
     }
 }
