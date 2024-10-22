@@ -7,8 +7,8 @@ require_once __DIR__ . '/config.php';
 
 
 // try {
-//     $conn = new PDO('mysql:host=' . DB_HOST . ';port=' . DB_PORT . ';dbname=' . DB_NAME . ';charset=utf8', DB_USERNAME, DB_PASSWORD);
-//     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+//     $connection = new PDO('mysql:host=' . DB_HOST . ';port=' . DB_PORT . ';dbname=' . DB_NAME . ';charset=utf8', DB_USERNAME, DB_PASSWORD);
+//     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 //     $cryptocurrencies = [
 //         ['name' => 'Bitcoin', 'symbol' => 'BTC'],
@@ -112,13 +112,13 @@ require_once __DIR__ . '/config.php';
 //         ['name' => 'BarnBridge', 'symbol' => 'BOND']
 //     ];
 
-//     $stmt = $conn->prepare("INSERT INTO `cryptocurrencies` (`name`, `symbol`) VALUES (:name, :symbol)");
+//     $statement = $connection->prepare("INSERT INTO `cryptocurrencies` (`name`, `symbol`) VALUES (:name, :symbol)");
 
 //     foreach ($cryptocurrencies as $crypto) {
-//         $stmt->bindParam(':name', $crypto['name']);
-//         $stmt->bindParam(':symbol', $crypto['symbol']);
+//         $statement->bindParam(':name', $crypto['name']);
+//         $statement->bindParam(':symbol', $crypto['symbol']);
 //         try {
-//             $stmt->execute();
+//             $statement->execute();
 //         } catch (PDOException $e) {
 //             if ($e->getCode() != 23000) {
 //                 echo "Ошибка: " . $e->getMessage() . PHP_EOL;
@@ -133,12 +133,12 @@ require_once __DIR__ . '/config.php';
 // }
 
 // try {
-//     $conn = new PDO('mysql:host=' . DB_HOST . ';port=' . DB_PORT . ';charset=utf8;dbname=' . DB_NAME, DB_USERNAME, DB_PASSWORD);
-//     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+//     $connection = new PDO('mysql:host=' . DB_HOST . ';port=' . DB_PORT . ';charset=utf8;dbname=' . DB_NAME, DB_USERNAME, DB_PASSWORD);
+//     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 //     #echo "Connection successful";
 
-//     $conn->exec("USE users");
+//     $connection->exec("USE users");
 
 //     // #Создание таблицы
 
@@ -164,7 +164,7 @@ require_once __DIR__ . '/config.php';
 //     //               )";
 
 
-//     // $conn->exec($sql);
+//     // $connection->exec($sql);
 
 
 //     // # Заполнение таблицы
@@ -188,14 +188,14 @@ require_once __DIR__ . '/config.php';
 //     //     $hash_password = password_hash($password, PASSWORD_DEFAULT);
 
 //     //     $sql = "INSERT INTO `users`(`name`, `email`, `avatar`, `date`, `sex`, `hash_password`) VALUES (:name, :email, :avatar, :date, :sex, :hash_password)";
-//     //     $stmt = $conn->prepare($sql);
-//     //     $stmt->bindParam(':name', $name);
-//     //     $stmt->bindParam(':email', $email);
-//     //     $stmt->bindParam(':avatar', $avatar);
-//     //     $stmt->bindParam(':date', $date);
-//     //     $stmt->bindParam(':sex', $sex);
-//     //     $stmt->bindParam(':hash_password', $hash_password);
-//     //     $stmt->execute();
+//     //     $statement = $connection->prepare($sql);
+//     //     $statement->bindParam(':name', $name);
+//     //     $statement->bindParam(':email', $email);
+//     //     $statement->bindParam(':avatar', $avatar);
+//     //     $statement->bindParam(':date', $date);
+//     //     $statement->bindParam(':sex', $sex);
+//     //     $statement->bindParam(':hash_password', $hash_password);
+//     //     $statement->execute();
 //     //     set_time_limit(300);
 //     // }
 

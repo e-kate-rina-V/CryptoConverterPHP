@@ -2,6 +2,8 @@
 include_once __DIR__ . '/head.php';
 require_once __DIR__ . '/src/helpers.php';
 
+require_once __DIR__ . '/src/actions/greeting_classes/Greeting.php';
+
 $isLoggedIn = isset($_SESSION['user_id']);
 
 ?>

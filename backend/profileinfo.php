@@ -28,7 +28,7 @@ $user = currentUser();
                 <div id="change-info">
                     <p>Username: <?php echo $user['name'] ?></p>
                     <a href="#" onclick="showForm('changeNameForm')">Change</a>
-                    <form id="changeNameForm" class ="change-form" style="display: <?php echo hasValidationError('name') ? 'block' : 'none'; ?>;" method="POST" action="./db/change_profile.php">
+                    <form id="changeNameForm" class ="change-form" style="display: <?php echo hasValidationError('name') ? 'block' : 'none'; ?>;" method="POST" action="./db/update_profile.php">
                         <div class="form">
                             <input type="text" id="name" name="new_name" placeholder="Enter new username" required <?php echo validationErrorAttr('name'); ?>>
                             <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
@@ -47,7 +47,7 @@ $user = currentUser();
                 <div id="change-info">
                     <p>Email: <?php echo $user['email'] ?></p>
                     <a href="#" onclick="showForm('changeEmailForm')">Change</a>
-                    <form id="changeEmailForm" class ="change-form" style="display: <?php echo hasValidationError('email') ? 'block' : 'none'; ?>;" method="POST" action="./db/change_profile.php">
+                    <form id="changeEmailForm" class ="change-form" style="display: <?php echo hasValidationError('email') ? 'block' : 'none'; ?>;" method="POST" action="./db/update_profile.php">
                         <div class="form">
                             <input type="email" id="email" name="new_email" placeholder="Enter new email" required <?php echo validationErrorAttr('name'); ?>>
                             <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
@@ -73,7 +73,7 @@ $user = currentUser();
                 <div class="change-info">
                     <div id="change-info">
                         <a id="change-password" href="#" onclick="showForm('changePasswordForm')">Change password</a>
-                        <form id="changePasswordForm" class ="change-form" style="display: <?php echo hasValidationError('password') ? 'block' : 'none'; ?>;" method="POST" action="./db/change_profile.php">
+                        <form id="changePasswordForm" class ="change-form" style="display: <?php echo hasValidationError('password') ? 'block' : 'none'; ?>;" method="POST" action="./db/update_profile.php">
                             <div class="form-pass">
                                 <input type="password" id="password" name="password" placeholder="Your current password" required <?php echo validationErrorAttr('password'); ?>>
                                 <input type="password" id="new_password" name="new_password" placeholder="New password" required <?php echo validationErrorAttr('new_password'); ?>>
@@ -91,7 +91,7 @@ $user = currentUser();
             </section>
             <section>
                 <a id="delete-account" href="#" onclick="showForm('deleteAccountForm')">Delete an account</a>
-                <form id="deleteAccountForm" method="POST" style="display: none;" action="./db/change_profile.php">
+                <form id="deleteAccountForm" method="POST" style="display: none;" action="./db/update_profile.php">
                     <h3>Delete account ?</h3>
                     <div class="form-del">
                         <input id="check" type="checkbox" name="delete_confirm" value="1"> Yes

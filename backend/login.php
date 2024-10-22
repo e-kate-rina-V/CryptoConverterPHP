@@ -12,9 +12,9 @@ if (isset($_COOKIE['remember_token'])) {
 
     $pdo = getPDO();
     $query = "SELECT `name` FROM `users` WHERE `remember_token` = :token";
-    $stmt = $pdo->prepare($query);
-    $stmt->execute(['token' => $token]);
-    $user = $stmt->fetch();
+    $statement = $pdo->prepare($query);
+    $statement->execute(['token' => $token]);
+    $user = $statement->fetch();
 
     if ($user) {
         $rememberedName = $user['name'];

@@ -9,28 +9,37 @@ const MAIN_COIN_TOKEN = 'USDT';
 
 function getBinancePrice($symbol)
 {
-    $url = "https://api.binance.com/api/v3/ticker/price?symbol={$symbol}USDT";
+    $url = API_URLS['binance'] . $symbol . MAIN_COIN_TOKEN;
     $response = file_get_contents($url);
-    if ($response === FALSE) return null;
+    if ($response === FALSE) {
+        return null;
+    }
     $data = json_decode($response, true);
+
     return isset($data['price']) ? (float)$data['price'] : null;
 }
 
 function getKrakenPrice($symbol)
 {
-    $url = "https://api.kraken.com/0/public/Ticker?pair={$symbol}USDT";
+    $url = API_URLS['kraken'] . $symbol . MAIN_COIN_TOKEN;
     $response = file_get_contents($url);
-    if ($response === FALSE) return null;
+    if ($response === FALSE) {
+        return null;
+    }
     $data = json_decode($response, true);
+
     return isset($data['result']) ? (float)$data['result'][key($data['result'])]['c'][0] : null;
 }
 
 function getOkxPrice($symbol)
 {
-    $url = "https://www.okx.com/api/v5/market/ticker?instId={$symbol}-USDT";
+    $url = API_URLS['okx'] . $symbol . MAIN_COIN_TOKEN;
     $response = file_get_contents($url);
-    if ($response === FALSE) return null;
+    if ($response === FALSE) {
+        return null;
+    }
     $data = json_decode($response, true);
+
     return isset($data['data'][0]['last']) ? (float)$data['data'][0]['last'] : null;
 }
 

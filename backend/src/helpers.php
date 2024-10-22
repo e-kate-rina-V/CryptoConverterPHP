@@ -92,9 +92,9 @@ function findUser(string $name): array|bool
 {
     $pdo = getPDO();
 
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE name = :name");
-    $stmt->execute(['name' => $name]);
-    return $stmt->fetch(\PDO::FETCH_ASSOC);
+    $statement = $pdo->prepare("SELECT * FROM users WHERE name = :name");
+    $statement->execute(['name' => $name]);
+    return $statement->fetch(\PDO::FETCH_ASSOC);
 }
 
 
@@ -108,9 +108,9 @@ function currentUser(): array|false
 
     $userId = $_SESSION['user_id'];
 
-    $stmt = $pdo->prepare("SELECT * FROM `users` WHERE `id` = :id");
-    $stmt->execute(['id' => $userId]);
-    return $stmt->fetch(\PDO::FETCH_ASSOC);
+    $statement = $pdo->prepare("SELECT * FROM `users` WHERE `id` = :id");
+    $statement->execute(['id' => $userId]);
+    return $statement->fetch(\PDO::FETCH_ASSOC);
 }
 
 
@@ -154,39 +154,39 @@ function checkGuest(): void
 }
 
 
-// Трейти
+// // Трейти
 
-class Greet
-{
-    public function greeting()
-    {
-        echo 'crypto converter';
-    }
-}
+// class Greet
+// {
+//     public function greeting()
+//     {
+//         echo 'crypto converter';
+//     }
+// }
 
-trait FirstGreeting
-{
-    public function greeting()
-    {
-        echo 'Glad to see you ';
-        parent::greeting();
-    }
-}
+// trait FirstGreeting
+// {
+//     public function greeting()
+//     {
+//         echo 'Glad to see you ';
+//         parent::greeting();
+//     }
+// }
 
-trait SecondGreeting
-{
-    public function greeting()
-    {
-        echo 'Welcome to ';
-        parent::greeting();
-    }
-}
+// trait SecondGreeting
+// {
+//     public function greeting()
+//     {
+//         echo 'Welcome to ';
+//         parent::greeting();
+//     }
+// }
 
-class Greeting extends Greet
-{
-    use FirstGreeting, SecondGreeting {
-        SecondGreeting::greeting insteadof FirstGreeting;
-    }
-}
+// class Greeting extends Greet
+// {
+//     use FirstGreeting, SecondGreeting {
+//         SecondGreeting::greeting insteadof FirstGreeting;
+//     }
+// }
 
-$g = new Greeting();
+// $g = new Greeting();

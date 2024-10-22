@@ -7,10 +7,10 @@ try {
     $pdo = new PDO('mysql:host=' . DB_HOST . ';port=' . DB_PORT . ';dbname=' . DB_NAME . ';charset=utf8', DB_USERNAME, DB_PASSWORD);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $stmt = $pdo->prepare("SELECT `name`, `symbol` FROM `cryptocurrencies`");
-    $stmt->execute();
+    $statement = $pdo->prepare("SELECT `name`, `symbol` FROM `cryptocurrencies`");
+    $statement->execute();
 
-    $cryptos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $cryptos = $statement->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     echo "Ошибка подключения к базе данных: " . $e->getMessage();
     exit;
