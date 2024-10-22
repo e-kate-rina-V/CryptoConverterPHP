@@ -1,5 +1,4 @@
 /.idea
 /backend/vendor
 /Docker/.env
-/.vscode
-/uploads
+/backend/uploads
