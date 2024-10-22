@@ -1,3 +1,5 @@
 /.idea
 /backend/vendor
 /Docker/.env
+.vscode
+/.vscode

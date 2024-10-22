@@ -11,7 +11,7 @@
     },
     "require-dev": {
         "wanfeiyy/dd": "^1.0",
-        "fakerphp/faker": "^1.9.1"
+        "fakerphp/faker": "^1.23"
     },
     "autoload": {
         "psr-4": {
