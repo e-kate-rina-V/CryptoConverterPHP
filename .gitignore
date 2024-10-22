@@ -2,3 +2,4 @@
 /backend/vendor
 /Docker/.env
 /.vscode
+/uploads
