@@ -1,4 +1,4 @@
 /.idea
 /backend/vendor
 /Docker/.env
-/backend/uploads
+backend/uploads
