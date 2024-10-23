@@ -9,4 +9,4 @@ class Greeting extends Greet
     }
 }
 
-$g = new Greeting();
+$greeting = new Greeting();

@@ -14,7 +14,7 @@ $isLoggedIn = isset($_SESSION['user_id']);
 
 <body>
     <div class="welcome-text">
-        <h1 id="welcome-text"><?php $g->greeting(); ?></h1>
+        <h1 id="welcome-text"><?php $greeting->greeting(); ?></h1>
         <a href="../index.php" id="profile-link">Profile</a>
 
         <div id="alert-container">

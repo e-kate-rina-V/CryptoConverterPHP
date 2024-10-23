@@ -59,9 +59,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $krakenPrice = getKrakenPrice($selectedCrypto);
         $okxPrice = getOkxPrice($selectedCrypto);
 
-        $totalPrices['Binance'] = $binancePrice !== null ? $binancePrice * $amount : null;
-        $totalPrices['Kraken'] = $krakenPrice !== null ? $krakenPrice * $amount : null;
-        $totalPrices['OKX'] = $okxPrice !== null ? $okxPrice * $amount : null;
+        $totalPrices['Binance'] = !is_null($binancePrice) ? $binancePrice * $amount : null;
+        $totalPrices['Kraken'] = !is_null($krakenPrice) ? $krakenPrice * $amount : null;
+        $totalPrices['OKX'] = !is_null($okxPrice) ? $okxPrice * $amount : null;
 
         $validPrices = array_filter($totalPrices);
         $averagePrice = count($validPrices) > 0 ? array_sum($validPrices) / count($validPrices) : null;
