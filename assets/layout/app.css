@@ -61,6 +61,10 @@ form {
     font-weight: 500;
 }
 
+#login-form span, #register-form span {
+    display: block;
+}
+
 /* sign in */
 
 .welcome-text {
