@@ -55,7 +55,7 @@ if (
         die($e->getMessage());
     }
 
-    redirect('../../login.php');
+    redirect('../../pages/login.php');
 } elseif (!empty($_SESSION['validation'])) {
     setOldValue('name', $name);
     setOldValue('email', $email);
@@ -66,5 +66,5 @@ if (
     } else {
         setValidationError('avatar', 'Error uploading avatar');
     }
-    redirect('../../register.php');
+    redirect('../../pages/register.php');
 }

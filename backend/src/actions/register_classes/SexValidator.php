@@ -7,8 +7,10 @@ class SexValidator extends Validation
     {
         if (empty($this->data)) {
             setValidationError('sex', 'Please, select gender');
+           
             return false;
         }
+       
         return true;
     }
 }

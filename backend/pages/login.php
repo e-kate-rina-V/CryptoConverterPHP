@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/src/helpers.php';
+require_once __DIR__ . '/../src/helpers.php';
 
 checkGuest();
 ?>
@@ -24,12 +24,12 @@ if (isset($_COOKIE['remember_token'])) {
 
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
-<?php include_once __DIR__ . '/head.php' ?>
+<?php include_once __DIR__ . '/../../assets/layout/head.php'; ?>
 
 <title>Log in</title>
 
 <body>
-    <form id="login-form" class="card" action="src/actions/login.php" method="post">
+    <form id="login-form" class="card" action="../src/actions/login.php" method="post">
         <h2>Log In</h2>
 
         <?php if (hasMessage('error')): ?>
@@ -70,8 +70,7 @@ if (isset($_COOKIE['remember_token'])) {
 
     <p>I don't have an <a href="./register.php">account</a> yet</p>
 
-    <script src="../assets/scripts/validation-login.js"></script>
-    <script src="../assets/scripts/app.js"></script>
+    <script src="../../assets/scripts/validation-login.js"></script>
 
 </body>
 

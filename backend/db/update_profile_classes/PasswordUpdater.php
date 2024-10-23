@@ -16,24 +16,29 @@ class PasswordUpdater extends ProfileUpdater
 
         if (!$user || !password_verify($this->password, $user['hash_password'])) {
             $this->setValidationError('password', 'Incorrect current password.');
+
             return false;
         }
 
         if (empty($this->newPassword)) {
             $this->setValidationError('password', 'New password cannot be empty.');
+
             return false;
         }
 
         if (strlen($this->newPassword) < 8) {
             $this->setValidationError('password', 'New password must be at least 8 characters long.');
+           
             return false;
         }
         if (!preg_match('/[a-zA-Z]/', $this->newPassword) || !preg_match('/[0-9]/', $this->newPassword)) {
             $this->setValidationError('password', 'The password must contain both letters and numbers');
+            
             return false;
         }
         if ($this->newPassword !== $this->confirmPassword) {
             $this->setValidationError('password', 'Passwords do not match.');
+           
             return false;
         }
 
@@ -45,6 +50,7 @@ class PasswordUpdater extends ProfileUpdater
         $newPasswordHash = password_hash($this->newPassword, PASSWORD_DEFAULT);
         $sql = "UPDATE `users` SET `hash_password` = :new_password WHERE `id` = :user_id";
         $statement = $this->connection->prepare($sql);
+        
         return $statement->execute([':new_password' => $newPasswordHash, ':user_id' => $this->userId]);
     }
 }

@@ -7,6 +7,7 @@ class EmailValidator extends Validation
     {
         if (!filter_var($this->data, FILTER_VALIDATE_EMAIL)) {
             setValidationError('email', 'Incorrect email specified');
+           
             return false;
         } else {
             try {
@@ -19,13 +20,16 @@ class EmailValidator extends Validation
 
                 if ($statement->fetchColumn() > 0) {
                     setValidationError('email', 'A user with this email already exists');
+                    
                     return false;
                 }
             } catch (PDOException $ex) {
                 echo "Connection failed: " . $ex->getMessage();
+               
                 return false;
             }
         }
+        
         return true;
     }
 }

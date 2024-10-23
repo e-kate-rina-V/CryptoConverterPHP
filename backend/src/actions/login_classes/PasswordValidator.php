@@ -16,8 +16,10 @@ class PasswordValidator extends Validation
     {
         if (!password_verify($this->data, $this->user['hash_password'])) {
             setMessage('error', 'Empty or incorrect password');
+
             return false;
         }
+        
         return true;
     }
 }

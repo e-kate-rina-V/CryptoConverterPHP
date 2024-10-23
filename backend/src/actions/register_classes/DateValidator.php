@@ -7,8 +7,10 @@ class DateValidator extends Validation
     {
         if (empty($this->data)) {
             setValidationError('date', 'Incorrect date specified');
+         
             return false;
         }
+        
         return true;
     }
 }

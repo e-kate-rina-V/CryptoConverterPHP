@@ -434,7 +434,11 @@ body .profile-info {
 }
 
 #cancel-btn {
-    background: linear-gradient(310deg, rgba(107, 116, 32, 1) 24%, rgba(196, 98, 98, 1) 100%);
+    background: #142947;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .profile-info form input {
@@ -467,8 +471,11 @@ body .profile-info {
 }
 
 #deleteAccountForm #del-submit {
-    background: rgb(72, 58, 133);
-    background: linear-gradient(312deg, rgba(72, 58, 133, 1) 0%, rgba(156, 29, 29, 1) 81%);
+    background: rgb(101, 16, 16);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .form {
@@ -478,6 +485,11 @@ body .profile-info {
 
 #check {
     width: 5%;
+}
+
+#error-message {
+    font-size: 30px;
+    margin-left: 5%;
 }
 
 #back-section {

@@ -37,7 +37,7 @@ if ($nameValidator->validate() && $passwordValidator->validate()) {
     if (!empty($_SESSION['validation'])) {
         setOldValue('name', $name);
     }
-    redirect('../../login.php');
+    redirect('../../pages/login.php');
 }
 
 if (!isset($_SESSION['user']) && isset($_COOKIE['remember_token'])) {

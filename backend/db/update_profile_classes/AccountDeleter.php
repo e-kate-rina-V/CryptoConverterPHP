@@ -25,6 +25,7 @@ class AccountDeleter
 
             if ($statement->fetchColumn() == 0) {
                 setValidationError('profile', 'User not found.');
+
                 return false;
             }
 
@@ -33,13 +34,16 @@ class AccountDeleter
 
             if ($statement->execute()) {
                 session_destroy();
+
                 return true;
             } else {
                 setValidationError('profile', 'Failed to delete account.');
+
                 return false;
             }
         } catch (PDOException $ex) {
             setValidationError('profile', 'Error: ' . $ex->getMessage());
+            
             return false;
         }
     }

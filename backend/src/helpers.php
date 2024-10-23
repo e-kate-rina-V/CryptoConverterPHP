@@ -29,6 +29,7 @@ function validationErrorMessage(string $fieldName): string
 {
     $message = $_SESSION['validation'][$fieldName] ?? '';
     unset($_SESSION['validation'][$fieldName]);
+
     return $message;
 }
 
@@ -41,6 +42,7 @@ function old(string $key)
 {
     $value = $_SESSION['old'][$key] ?? '';
     unset($_SESSION['old'][$key]);
+
     return $value;
 }
 
@@ -76,6 +78,7 @@ function getMessage(string $key): string
 {
     $message = $_SESSION['message'][$key] ?? '';
     unset($_SESSION['message'][$key]);
+
     return $message;
 }
 
@@ -94,6 +97,7 @@ function findUser(string $name): array|bool
 
     $statement = $pdo->prepare("SELECT * FROM users WHERE name = :name");
     $statement->execute(['name' => $name]);
+
     return $statement->fetch(\PDO::FETCH_ASSOC);
 }
 
@@ -110,6 +114,7 @@ function currentUser(): array|false
 
     $statement = $pdo->prepare("SELECT * FROM `users` WHERE `id` = :id");
     $statement->execute(['id' => $userId]);
+
     return $statement->fetch(\PDO::FETCH_ASSOC);
 }
 
@@ -134,7 +139,7 @@ function logout(): void
         setcookie('cookies_accepted', '', time() - 3600, "/");
     }
 
-    redirect('../../login.php');
+    redirect('../../pages/login.php');
 }
 
 
@@ -152,41 +157,3 @@ function checkGuest(): void
         redirect('../../index.php');
     }
 }
-
-
-// // Трейти
-
-// class Greet
-// {
-//     public function greeting()
-//     {
-//         echo 'crypto converter';
-//     }
-// }
-
-// trait FirstGreeting
-// {
-//     public function greeting()
-//     {
-//         echo 'Glad to see you ';
-//         parent::greeting();
-//     }
-// }
-
-// trait SecondGreeting
-// {
-//     public function greeting()
-//     {
-//         echo 'Welcome to ';
-//         parent::greeting();
-//     }
-// }
-
-// class Greeting extends Greet
-// {
-//     use FirstGreeting, SecondGreeting {
-//         SecondGreeting::greeting insteadof FirstGreeting;
-//     }
-// }
-
-// $g = new Greeting();

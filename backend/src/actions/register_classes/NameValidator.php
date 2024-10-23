@@ -7,6 +7,7 @@ class NameValidator extends Validation
     {
         if (empty($this->data)) {
             setValidationError('name', 'Incorrect name specified');
+        
             return false;
         } else {
             try {
@@ -19,13 +20,16 @@ class NameValidator extends Validation
 
                 if ($statement->fetchColumn() > 0) {
                     setValidationError('name', 'A user with that name already exists');
+                 
                     return false;
                 }
             } catch (PDOException $ex) {
                 echo "Connection failed: " . $ex->getMessage();
+                
                 return false;
             }
         }
+       
         return true;
     }
 }

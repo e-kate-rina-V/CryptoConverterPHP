@@ -17,17 +17,22 @@ class PasswordValidator extends Validation
 
         if (empty($this->data)) {
             setValidationError('password', 'Password is empty');
+            
             return false;
         } elseif (strlen($password) < 8) {
             setValidationError('password', 'The password must contain at least 8 characters');
+           
             return false;
         } elseif (!preg_match('/[a-zA-Z]/', $password) || !preg_match('/[0-9]/', $password)) {
             setValidationError('password', 'The password must contain both letters and numbers');
+           
             return false;
         } elseif ($this->data !== $this->passwordConfirmation) {
             setValidationError('password', 'Passwords do not match');
+            
             return false;
         }
+       
         return true;
     }
 }

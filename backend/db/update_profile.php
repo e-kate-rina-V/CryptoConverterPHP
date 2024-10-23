@@ -23,20 +23,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             $updater = new AccountDeleter($userId);
             if ($updater->process()) {
-                header("Location: ../login.php");
+                header("Location: ../pages/login.php");
                 exit();
             } else {
-                header("Location: ../profileinfo.php?error=delete_failed");
+                header("Location: ../pages/profileinfo.php?error=delete_failed");
                 exit();
             }
         } else {
             setValidationError('profile', 'You must confirm the deletion by selecting "Yes".');
-            header("Location: ../profileinfo.php");
+            header("Location: ../pages/profileinfo.php");
             exit();
         }
     } else {
         setValidationError('profile', 'Unknown action or no confirmation for deletion.');
-        header("Location: ../profileinfo.php");
+        header("Location: ../pages/profileinfo.php");
         exit();
     }
 

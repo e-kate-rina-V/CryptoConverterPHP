@@ -10,11 +10,14 @@ class NameValidator extends Validation
 
         if (empty($this->data) || !is_string($this->data)) {
             setValidationError('name', 'Please, enter your name');
+
             return false;
         } elseif (!$user) {
             setMessage('error', "User $this->data not found");
+
             return false;
         }
+        
         return true;
     }
 }

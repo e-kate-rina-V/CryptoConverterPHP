@@ -18,7 +18,7 @@ abstract class ProfileUpdater
     {
         if ($this->validate()) {
             if ($this->update()) {
-                header("Location: ../profileinfo.php");
+                header("Location: ../pages/profileinfo.php");
                 exit();
             } else {
                 $this->setValidationError('profile', 'Failed to update.');
@@ -26,7 +26,7 @@ abstract class ProfileUpdater
         }
 
         $_SESSION['validation_errors'] = $_SESSION['validation'];
-        header("Location: ../profileinfo.php");
+        header("Location: ../pages/profileinfo.php");
         exit();
     }
 

@@ -1,8 +1,8 @@
 <?php
-include_once __DIR__ . '/head.php';
-require_once __DIR__ . '/src/helpers.php';
+include_once __DIR__ . '/../../assets/layout/head.php';
+require_once __DIR__ . '/../src/helpers.php';
 
-require_once __DIR__ . '/src/actions/greeting_classes/Greeting.php';
+require_once __DIR__ . '/../src/actions/greeting_classes/Greeting.php';
 
 $isLoggedIn = isset($_SESSION['user_id']);
 
@@ -15,7 +15,7 @@ $isLoggedIn = isset($_SESSION['user_id']);
 <body>
     <div class="welcome-text">
         <h1 id="welcome-text"><?php $g->greeting(); ?></h1>
-        <a href="index.php" id="profile-link">Profile</a>
+        <a href="../index.php" id="profile-link">Profile</a>
 
         <div id="alert-container">
             Please <a href="login.php">log in</a> or <a href="register.php">register</a> to access your profile.
@@ -26,7 +26,7 @@ $isLoggedIn = isset($_SESSION['user_id']);
         const isLoggedIn = <?php echo json_encode($isLoggedIn); ?>;
     </script>
 
-    <script src="../assets/scripts/check-login.js"></script>
+    <script src="../../assets/scripts/check-login.js"></script>
 </body>
 
 </html>

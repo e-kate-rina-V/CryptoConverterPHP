@@ -1,16 +1,16 @@
 <title>Registration</title>
 
 <?php
-require_once __DIR__ . '/src/helpers.php';
+require_once __DIR__ . '/../src/helpers.php';
 checkGuest();
 ?>
 
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
-<?php include_once __DIR__ . '/head.php' ?>
+<?php include_once __DIR__ . '/../../assets/layout/head.php';?>
 
 <body>
-    <form id="register-form" class="card" action="src/actions/register.php" method="post" enctype="multipart/form-data">
+    <form id="register-form" class="card" action="../src/actions/register.php" method="post" enctype="multipart/form-data">
         <h2>Registration</h2>
 
         <label for="name">
@@ -140,7 +140,7 @@ checkGuest();
 
     <p>I already have an <a href="./login.php">account</a></p>
 
-    <script src="../assets/scripts/validation-register.js"></script>
+    <script src="../../assets/scripts/validation-register.js"></script>
 
 </body>
 

@@ -15,11 +15,13 @@ class EmailUpdater extends ProfileUpdater
     {
         if (empty($this->newEmail)) {
             $this->setValidationError('email', 'Email cannot be empty.');
+
             return false;
         }
 
         if (!filter_var($this->newEmail, FILTER_VALIDATE_EMAIL)) {
             $this->setValidationError('email', 'Incorrect email specified.');
+
             return false;
         }
 
@@ -29,6 +31,7 @@ class EmailUpdater extends ProfileUpdater
 
         if ($statement->fetchColumn() > 0) {
             $this->setValidationError('email', 'A user with that email already exists.');
+
             return false;
         }
 
@@ -39,6 +42,7 @@ class EmailUpdater extends ProfileUpdater
     {
         $sql = "UPDATE `users` SET `email` = :new_email WHERE `id` = :user_id";
         $statement = $this->connection->prepare($sql);
+        
         return $statement->execute([':new_email' => $this->newEmail, ':user_id' => $this->userId]);
     }
 }

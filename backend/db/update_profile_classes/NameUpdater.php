@@ -15,6 +15,7 @@ class NameUpdater extends ProfileUpdater
     {
         if (empty($this->newName)) {
             $this->setValidationError('name', 'Name cannot be empty.');
+
             return false;
         }
 
@@ -24,6 +25,7 @@ class NameUpdater extends ProfileUpdater
 
         if ($statement->fetchColumn() > 0) {
             $this->setValidationError('name', 'A user with that name already exists.');
+
             return false;
         }
 
@@ -34,6 +36,7 @@ class NameUpdater extends ProfileUpdater
     {
         $sql = "UPDATE `users` SET `name` = :new_name WHERE `id` = :user_id";
         $statement = $this->connection->prepare($sql);
+        
         return $statement->execute([':new_name' => $this->newName, ':user_id' => $this->userId]);
     }
 }

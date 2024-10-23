@@ -1,6 +1,6 @@
-<?php include_once __DIR__ . '/services/apiService.php' ?>
-<?php include_once __DIR__ . '/head.php' ?>
-<?php include_once __DIR__ . '/db/config.php' ?>
+<?php include_once __DIR__ . '/../services/apiService.php' ?>
+<?php include_once __DIR__ . '/../../assets/layout/head.php'; ?>
+<?php include_once __DIR__ . '/../db/config.php' ?>
 
 <?php
 try {
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <title>Converter</title>
 
 <div id="back-section">
-    <a href="index.php">◀</a>
+    <a href="../index.php">◀</a>
 </div>
 
 <body>
@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
         </section>
         <section class="converter-image">
-            <img id="warning-img" src="../assets/img/warning.png" alt="Warning Image" />
+            <img id="warning-img" src="../../assets/img/warning.png" alt="Warning Image" />
             <div id="image-text">
                 <div id="square">
                     <p>This cryptocurrency converter can</p>
@@ -103,9 +103,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php if (!empty($totalPrices)): ?>
         <div>
             <div class="crypto-img">
-                <img id="binace-logo" src="../assets/img/binance_logo.png" alt="Binance logo" />
-                <img id="kraken-logo" src="../assets/img/kraken_logo.png" alt="Kraken Logo" />
-                <img id="okx-logo" src="../assets/img/okx_logo.png" alt="OKX Logo" />
+                <img id="binace-logo" src="../../assets/img/binance_logo.png" alt="Binance logo" />
+                <img id="kraken-logo" src="../../assets/img/kraken_logo.png" alt="Kraken Logo" />
+                <img id="okx-logo" src="../../assets/img/okx_logo.png" alt="OKX Logo" />
             </div>
             <h2>Prices:</h2>
         </div>
@@ -121,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php endif; ?>
 
     <?php if ($averagePrice !== null): ?>
-        <h2 id="average-price"> <img id="average-logo" src="../assets/img/average_logo.png" alt="average logo" /> Average Price: <?php echo number_format($averagePrice, 5) . ' USD'; ?></h2>
+        <h2 id="average-price"> <img id="average-logo" src="../../assets/img/average_logo.png" alt="average logo" /> Average Price: <?php echo number_format($averagePrice, 5) . ' USD'; ?></h2>
     <?php endif; ?>
 
     <?php if (count($totalPrices) === 0 && !empty($_POST)): ?>
@@ -132,7 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         const cryptos = <?php echo json_encode($cryptos); ?>;
     </script>
 
-    <script src="../assets/scripts/crypto-selector.js"></script>
+    <script src="../../assets/scripts/crypto-selector.js"></script>
 
 </body>
 
