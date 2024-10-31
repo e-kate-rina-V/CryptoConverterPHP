@@ -1,53 +1,47 @@
 
-function displayCryptos(cryptos) {
-    const cryptoList = document.getElementById('crypto-list');
-    cryptoList.innerHTML = '';
-
-    cryptos.forEach(crypto => {
-        const div = document.createElement('div');
-        div.textContent = `${crypto.name} (${crypto.symbol})`;
-        div.onclick = () => selectCrypto(crypto.symbol);
-        cryptoList.appendChild(div);
-    });
+function toggleDropdownCryptoList() {
+    var cryptoList = document.getElementById("cryptoList");
+    cryptoList.style.display = cryptoList.style.display === "none" ? "block" : "none";
 }
 
-function toggleDropdown() {
-    const cryptoList = document.getElementById('crypto-list');
-    cryptoList.style.display = cryptoList.style.display === 'block' ? 'none' : 'block';
+function toggleDropdownFavoritesCryptoList() {
+    var favoritesCryptoList = document.getElementById("favoritesCryptoList");
+    favoritesCryptoList.style.display = favoritesCryptoList.style.display === "none" ? "block" : "none";
 }
 
-function filterCryptos() {
-    const input = document.getElementById('search-input').value.toLowerCase();
-    const cryptoList = document.getElementById('crypto-list');
-    const options = cryptoList.children;
+function selectCrypto(cryptoSymbol) {
+    document.querySelector('.select-selected').textContent = cryptoSymbol;
+    document.getElementById('selected-crypto').textContent = 'You selected: ' + cryptoSymbol;
+    document.getElementById('selected_crypto').value = cryptoSymbol;
+    document.getElementById("cryptoList").style.display = "none";
+}
 
-    for (let i = 0; i < options.length; i++) {
-        const option = options[i];
-        const text = option.textContent.toLowerCase();
-        option.style.display = text.includes(input) ? '' : 'none';
+function selectFavoriteCrypto(cryptoSymbol) {
+    if (cryptoSymbol) {
+        document.querySelector('.select-selected').textContent = cryptoSymbol;
+        document.getElementById('selected-crypto').textContent = 'You selected: ' + cryptoSymbol;
+        document.getElementById('selected_crypto').value = cryptoSymbol;
     }
 }
 
-function sortCryptos() {
-    const sortOrder = document.getElementById('sort-select').value;
-    const sortedCryptos = [...cryptos];
+window.onclick = function (event) {
+    if (!event.target.matches('.select-selected')) {
+        var cryptoList = document.getElementById("cryptoList");
+        if (cryptoList.style.display === "block") {
+            cryptoList.style.display = "none";
+        }
+    }
+    if (!event.target.matches('.select-selected-favorites')) {
+        var favoritesCryptoList = document.getElementById("favoritesCryptoList");
+        if (favoritesCryptoList.style.display === "block") {
+            favoritesCryptoList.style.display = "none";
+        }
+    }
+    if (document.getElementById("success-message")) {
+        document.getElementById("success-message").style.display = "none";
+    }
+    if (document.getElementById("error-message")) {
+        document.getElementById("error-message").style.display = "none";
+    }
 
-    sortedCryptos.sort((a, b) => {
-        return sortOrder === 'asc' ?
-            a.name.localeCompare(b.name) :
-            b.name.localeCompare(a.name);
-    });
-
-    displayCryptos(sortedCryptos);
 }
-
-function selectCrypto(crypto) {
-    document.querySelector('.select-selected').textContent = crypto;
-    document.getElementById('selected-crypto').textContent = 'You selected: ' + crypto;
-    document.getElementById('selected_crypto').value = crypto;
-    document.getElementById('crypto-list').style.display = 'none';
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    displayCryptos(cryptos);
-});

@@ -61,9 +61,17 @@ form {
     font-weight: 500;
 }
 
-#login-form span, #register-form span {
+.success {
+    color: goldenrod;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+#login-form span,
+#register-form span {
     display: block;
 }
+
 
 /* sign in */
 
@@ -101,7 +109,7 @@ form {
 body #main-header {
     display: flex;
     height: 100vh;
-    gap: 20%;
+    gap: 13%;
 }
 
 #main-header {
@@ -131,6 +139,14 @@ body #main-header {
 #main-header button {
     padding: 5px 35px;
     margin-top: -10%;
+}
+
+#main-header h6 {
+    cursor: auto;
+}
+
+#main-header .avatar {
+    cursor: not-allowed;
 }
 
 .avatar {
@@ -196,23 +212,97 @@ p {
 
 body #converter {
     display: block;
-    margin-right: 45%;
 }
 
-.custom-select {
-    width: 550px;
+#crypto-category {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    gap: 4%;
+}
+
+#category {
+    cursor: pointer;
+}
+
+.favorites {
+    display: grid;
+    gap: 10%;
+    margin-top: 2%;
+}
+
+.custom-select,
+.favorite-select {
     display: flex;
     gap: 5%;
     align-items: center;
 }
 
-.select-selected {
+.favorite-select {
+    margin-top: 3%;
+}
+
+.select-selected,
+.select-selected-favorites {
     background-color: black;
     padding: 14px;
-    text-wrap: nowrap;
-    margin-bottom: 4%;
     cursor: pointer;
     border: 1px solid #ccc;
+}
+
+#favorite-crypto-selector {
+    width: 52%;
+}
+
+.crypto-list {
+    max-height: 200px;
+    margin-top: 10%;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    background-color: black;
+    position: absolute;
+    z-index: 1;
+    display: none;
+}
+
+.crypto-item {
+    margin-left: 5%;
+}
+
+.crypto-list .crypto-item:hover {
+    background-color: darkslategray;
+}
+
+#favoritesCryptoList button {
+    width: 15%;
+    padding: 1px;
+    background-color: #9c1d1d;
+    border: 1px solid whitesmoke;
+}
+
+.favorites-add {
+    display: grid;
+    gap: 10%;
+    margin-left: 5%;
+}
+
+.favorites-btn {
+    display: flex;
+    gap: 25%;
+    justify-content: center;
+}
+
+.favorites-btn #add-btn,
+.favorites-btn #remove-btn {
+    width: 30%;
+}
+
+.favorites-btn:hover {
+    background-color: black;
+}
+
+#favoritesCryptoList button:hover {
+    background-color: black;
 }
 
 #search-input {
@@ -275,6 +365,7 @@ body #converter {
 
 #warning-img {
     width: 350px;
+    cursor: not-allowed;
 }
 
 .converter-image {
@@ -308,6 +399,7 @@ body #converter {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    cursor: not-allowed;
 }
 
 .scrollable-results {
@@ -330,9 +422,6 @@ body #converter {
 }
 
 #result-list {
-    color: white;
-    display: flex;
-    gap: 300px;
     font-size: 30px;
 }
 
@@ -404,6 +493,10 @@ body .profile-info {
     font-size: 40px;
     margin-top: 10px;
     margin-left: 40px;
+}
+
+.info-text {
+    cursor: auto;
 }
 
 .profile-info section {
@@ -511,4 +604,96 @@ body .profile-info {
     border: 2px solid ghostwhite;
     border-radius: 5px;
     text-decoration: none;
+}
+
+/* Users list */
+
+#user_list-back {
+    display: flex;
+    justify-content: center;
+    margin-right: 5%;
+}
+
+#user_list_header {
+    color: white;
+    cursor: auto;
+}
+
+#search_sort-users {
+    display: flex;
+    gap: 10%;
+    justify-content: center;
+}
+
+#search-user,
+#sort-user {
+    display: flex;
+    gap: 10%;
+}
+
+#search-user {
+    width: 100%;
+}
+
+#sort-user {
+    width: 70%;
+}
+
+#sort-user select {
+    cursor: pointer;
+}
+
+#search_sort-users input {
+    width: 100%;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+#search_sort-users input:focus {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+}
+
+#search_sort-users button {
+    background: #142947;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    width: 100%;
+}
+
+#search_sort-users button:hover {
+    background: rgba(255, 255, 255, 0.084);
+    border: solid 1px lightblue;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    color: darkgray;
+}
+
+th {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    color: whitesmoke;
+}
+
+.pagination a {
+    padding: 8px 12px;
+    margin: 0 5px;
+    text-decoration: none;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    background-color: #a5a3d75f;
+    color: whitesmoke;
+}
+
+
+.pagination a:hover {
+    background-color: #a5a3d729;
+}
+
+
+.pagination a.active {
+    background-color: #42415622;
+    color: white;
 }

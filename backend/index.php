@@ -21,6 +21,7 @@ $cookiesAccepted = isset($_SESSION['cookies_accepted']) ? true : false;
 <header id="main-header">
     <a href="pages/converter.php">Converter</a>
     <a href="pages/profileinfo.php">Profile Info</a>
+    <a href="pages/users_list.php">Users list</a>
     <section class="avatar-section">
         <img class="avatar" src="<?php echo $user['avatar']; ?>">
         <h6>Welcome, <?php echo $user['name'] ?>!</h6>

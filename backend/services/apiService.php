@@ -33,7 +33,7 @@ function getKrakenPrice($symbol)
 
 function getOkxPrice($symbol)
 {
-    $url = API_URLS['okx'] . $symbol . MAIN_COIN_TOKEN;
+    $url = API_URLS['okx'] . $symbol . "-" . MAIN_COIN_TOKEN;
     $response = file_get_contents($url);
     if ($response === FALSE) {
         return null;

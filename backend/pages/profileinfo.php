@@ -23,29 +23,29 @@ $user = currentUser();
 
 <body>
     <div class="profile-info">
-            <section>
-                <div class="change-info">
-                    <div id="change-info">
-                        <p>Username: <?php echo $user['name'] ?></p>
-                        <a href="#" onclick="showForm('changeNameForm')">Change</a>
-                        <form id="changeNameForm" class="change-form" style="display: <?php echo hasValidationError('name') ? 'block' : 'none'; ?>;" method="POST" action="../db/update_profile.php">
-                            <div class="form">
-                                <input type="text" id="name" name="new_name" placeholder="Enter new username" required <?php echo validationErrorAttr('name'); ?>>
-                                <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
-                                <button type="submit">Save</button>
-                                <button id="cancel-btn" type="button" onclick="hideForm('changeNameForm')">Cancel</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <?php if (hasValidationError('name')): ?>
-                    <p id="error-message" class="error-message"><?php echo validationErrorMessage('name'); ?></p>
-                <?php endif; ?>
-            </section>
         <section>
             <div class="change-info">
                 <div id="change-info">
-                    <p>Email: <?php echo $user['email'] ?></p>
+                    <p class="info-text">Username: <?php echo $user['name'] ?></p>
+                    <a href="#" onclick="showForm('changeNameForm')">Change</a>
+                    <form id="changeNameForm" class="change-form" style="display: <?php echo hasValidationError('name') ? 'block' : 'none'; ?>;" method="POST" action="../db/update_profile.php">
+                        <div class="form">
+                            <input type="text" id="name" name="new_name" placeholder="Enter new username" required <?php echo validationErrorAttr('name'); ?>>
+                            <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
+                            <button type="submit">Save</button>
+                            <button id="cancel-btn" type="button" onclick="hideForm('changeNameForm')">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <?php if (hasValidationError('name')): ?>
+                <p id="error-message" class="error-message"><?php echo validationErrorMessage('name'); ?></p>
+            <?php endif; ?>
+        </section>
+        <section>
+            <div class="change-info">
+                <div id="change-info">
+                    <p class="info-text">Email: <?php echo $user['email'] ?></p>
                     <a href="#" onclick="showForm('changeEmailForm')">Change</a>
                     <form id="changeEmailForm" class="change-form" style="display: <?php echo hasValidationError('email') ? 'block' : 'none'; ?>;" method="POST" action="./../db/update_profile.php">
                         <div class="form">
